@@ -1,3 +1,5 @@
+import numpy as np
+
 def parseIris():
    dados = []
    colunas = []
@@ -14,7 +16,7 @@ def parseIris():
          dados.append(colunas)
          colunas = []
 
-      data, target = divideOsDados(dados)
+      return divideOsDados(dados)
 
 def divideOsDados(dados):
    indiceDaCategoria = 0
@@ -28,6 +30,12 @@ def divideOsDados(dados):
 
       categorias.append(mapaCategorias[dado[4]])
       del dado[-1]
+
+      for j in range(len(dado)):
+         dado[j] = float(dado[j])
+      
+   dados = np.asarray(dados)
+   categorias = np.asarray(categorias)
 
    return dados, categorias   
       
