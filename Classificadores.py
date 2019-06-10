@@ -1,7 +1,8 @@
-import DataParser
 from DecisionTree import DecisionTree
 from sklearn.model_selection import StratifiedKFold
+import DataParser
 import numpy as np
+import glob
 
 def criarArquivosDeDados(fileNames):
    for file in fileNames:
@@ -19,10 +20,19 @@ def escreverDados(fileName, index, acuracia, logisticLoss, predicao):
 
 if __name__ == "__main__":
    skf = StratifiedKFold(n_splits=10)
-   X, y = DataParser.parseIris()
+   # X, y = DataParser.parseIris()
    
+   inputDir = "./DataSets/Raw/"
+   fileList = glob.glob(inputDir + "*")
+   inputFiles = dict()
+   for file in fileList:
+      fileName = file[len(inputDir):-4]
+      inputFiles[fileName] = file
+
+   files = DataParser.parseFiles(inputFiles)
+
    outputDir = "./DadosColetados/"
-   fileNames = {
+   outputFiles = {
       "Iris": outputDir + "IrisData.txt",
       "BreastCancer": outputDir + "BreastCancerData.txt"
    }
@@ -33,7 +43,7 @@ if __name__ == "__main__":
    }
 
    # Cria um arquivo novo toda vez que rodar o programa para cada dataset
-   criarArquivosDeDados(fileNames)
+   criarArquivosDeDados(outputFiles)
 
    index = 0   
    for train_index, test_index in skf.split(X, y):
@@ -41,13 +51,13 @@ if __name__ == "__main__":
       labelsDeTreino, labelsDoTeste = y[train_index], y[test_index]
 
       decisionTree = DecisionTree(dadosDeTreino, dadosDeTeste, labelsDeTreino, labelsDoTeste)
-      escreverDados(fileNames["Iris"], index, decisionTree.acuracia, decisionTree.logisticLoss, decisionTree.conjuntoPredito)
+      escreverDados(outputFiles["Iris"], index, decisionTree.acuracia, decisionTree.logisticLoss, decisionTree.conjuntoPredito)
       irisData["somaAcuracia"] += decisionTree.acuracia
       irisData["somaLogisticLoss"] += decisionTree.logisticLoss
       
       index += 1
 
-   with open(fileNames["Iris"], "a") as IrisFile:
+   with open(outputFiles["Iris"], "a") as IrisFile:
       IrisFile.write("====\n")
       IrisFile.write("Acuracia Media: " + "%.2f" % (irisData["somaAcuracia"]/index) + "\n")
       IrisFile.write("Perda Logistica Media: " + "%.2f" % (irisData["somaLogisticLoss"]/index) + "\n")

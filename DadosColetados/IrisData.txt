@@ -34,10 +34,10 @@ Logistic Loss: 2.30
 Conjunto Predito: 
 [0,0,0,0,0,1,1,1,2,1,2,2,2,2,2]
 ====Fold: 7
-Acuracia: 1.00
-Logistic Loss: 0.00
+Acuracia: 0.93
+Logistic Loss: 2.30
 Conjunto Predito: 
-[0,0,0,0,0,1,1,1,1,1,2,2,2,2,2]
+[0,0,0,0,0,1,1,1,1,1,2,2,2,1,2]
 ====Fold: 8
 Acuracia: 1.00
 Logistic Loss: 0.00
@@ -49,5 +49,5 @@ Logistic Loss: 0.00
 Conjunto Predito: 
 [0,0,0,0,0,1,1,1,1,1,2,2,2,2,2]
 ====
-Acuracia Media: 0.96
-Perda Logistica Media: 1.38
+Acuracia Media: 0.95
+Perda Logistica Media: 1.61
