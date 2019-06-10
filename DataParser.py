@@ -1,9 +1,13 @@
-from sklearn.preprocessing import Imputer
+from sklearn.impute import SimpleImputer
 import numpy as np
 
 def parseFiles(fileList):
-   fileData = dict()
+   fileData = parseData(fileList)
+   fileData = preProcessData(fileData)
+   return fileData
    
+def parseData(fileList):
+   fileData = dict()
    for file in fileList:
       dados = []
       colunas = []
@@ -20,12 +24,9 @@ def parseFiles(fileList):
 
             dados.append(colunas)
             colunas = []
-         
+      
       fileData[file] = dados
-
-   preProcessData(fileData)
-
-   print("OI")
+   return fileData
 
 def preProcessData(fileData):
    for file in fileData:
@@ -47,58 +48,32 @@ def preProcessData(fileData):
                      mapaAttrs[dado] = indiceAttrs
                      indiceAttrs += 1
                   fileData[file][linha][coluna] = mapaAttrs[dado]
-
+               
          label = fileData[file][linha][-1]
          if not(label in mapaCategorias):
             mapaCategorias[label] = indiceDaCategoria
             indiceDaCategoria += 1
          categorias.append(mapaCategorias[label])
    
-      for linha in range(len(fileData[file])):
-         del fileData[file][linha][-1]
-         fileData[file][linha] = (fileData[file][linha], categorias[linha])
+      fileData[file] = separarDadosDaCategoria(fileData[file]), np.asarray(categorias)
 
-   print("oi")
+   return fileData
       
-      
+def separarDadosDaCategoria(dados):
+   for linha in range(len(dados)):
+      del dados[linha][-1]
 
+   x = len(dados)
+   y = len(dados[0])
+   new = np.zeros((x, y))
+   for i in range(x):
+      for j in range(y):
+         if (dados[i][j] == "?"):
+            new[i][j] = np.nan
+         else:
+            new[i][j] = dados[i][j]
+            
+   imputer = SimpleImputer(missing_values=np.nan, strategy="mean")
+   dados = imputer.fit_transform(new)
    
-
-def parseIris():
-   dados = []
-   colunas = []
-   with open("./DataSets/Raw/iris.data", "r") as arquivo:
-      str = ""
-      for linha in arquivo:
-         for coluna in linha:
-            if (coluna != "," and coluna != "\n"):
-               str += coluna
-            else:
-               colunas.append(str)
-               str = "" 
-
-         dados.append(colunas)
-         colunas = []
-
-   return divideOsDados(dados)
-
-def divideOsDados(dados):
-   indiceDaCategoria = 0
-   mapaCategorias = dict()
-   categorias = list()
-   for i in range(len(dados)):
-      dado = dados[i]
-      if not (dado[-1] in mapaCategorias):
-         mapaCategorias[dado[-1]] = indiceDaCategoria
-         indiceDaCategoria += 1
-
-      categorias.append(mapaCategorias[dado[4]])
-      del dado[-1]
-
-      for j in range(len(dado)):
-         dado[j] = float(dado[j])
-      
-   dados = np.asarray(dados)
-   categorias = np.asarray(categorias)
-
-   return dados, categorias
+   return dados

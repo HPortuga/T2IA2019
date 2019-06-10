@@ -9,7 +9,7 @@ def criarArquivosDeDados(fileNames):
       with open(fileNames.get(file), "w") as file:
          file.write("====Fold: 0\n")
 
-def escreverDados(fileName, index, acuracia, logisticLoss, predicao):
+def escreverDados(algoritmo, fileName, index, acuracia, logisticLoss, predicao):
    with open(fileName, "a") as file:
       if (index != 0):
          file.write("====Fold: " + str(index) + "\n")
@@ -18,33 +18,56 @@ def escreverDados(fileName, index, acuracia, logisticLoss, predicao):
       file.write("Conjunto Predito: \n")
       file.write(np.array2string(predicao, precision=2, separator=",", suppress_small=True)+"\n")
 
-if __name__ == "__main__":
-   skf = StratifiedKFold(n_splits=10)
-   # X, y = DataParser.parseIris()
-   
-   inputDir = "./DataSets/Raw/"
-   fileList = glob.glob(inputDir + "*")
+def abrirDataSets(diretorio):
+   fileList = glob.glob(diretorio + "*")
    inputFiles = dict()
    for file in fileList:
-      fileName = file[len(inputDir):-4]
+      fileName = file[len(diretorio):-4]
       inputFiles[fileName] = file
+   return inputFiles
 
-   files = DataParser.parseFiles(inputFiles)
+if __name__ == "__main__":
+   inputDir = "./DataSets/Raw/"
+   inputFiles = abrirDataSets(inputDir)
+   inputFiles = DataParser.parseFiles(inputFiles)
 
    outputDir = "./DadosColetados/"
-   outputFiles = {
-      "Iris": outputDir + "IrisData.txt",
-      "BreastCancer": outputDir + "BreastCancerData.txt"
-   }
+   outputFiles = dict()
+   for file in inputFiles:
+      outputFiles[file] = outputDir + file + ".csv"
+
+   # Cria um arquivo novo para cada dataset toda vez que rodar o programa 
+   # criarArquivosDeDados(outputFiles)
+
+   outputData = dict()
+
+   skf = StratifiedKFold(n_splits=10)
+   for file in inputFiles:
+      outputData[file] = {
+         "Decision Tree" : dict()
+      }
+
+      X, y = inputFiles[file]
+      index = 0
+      for train_index, test_index in skf.split(X, y):
+         dadosDeTreino, dadosDeTeste = X[train_index], X[test_index]
+         labelsDeTreino, labelsDeTeste = y[train_index], y[test_index]
+   
+         decisionTree = DecisionTree(dadosDeTreino, dadosDeTeste, labelsDeTreino, labelsDoTeste)
+         outputData[file]["Decision Tree"][index]["Acuracia"] = decisionTree.acuracia
+         outputData[file]["Decision Tree"][index]["Logistic Loss"] = decisionTree.logisticLoss
+         # escreverDados("DecisionTree", outputFiles[file], index, decisionTree.acuracia, decisionTree.logisticLoss, decisionTree.conjuntoPredito)
+
+
+         # Demais algoritmos de classificacao
+
 
    irisData = {
       "somaAcuracia": 0.0,
       "somaLogisticLoss": 0.0
    }
-
-   # Cria um arquivo novo toda vez que rodar o programa para cada dataset
-   criarArquivosDeDados(outputFiles)
-
+   skf = StratifiedKFold(n_splits=10)
+   # X, y = DataParser.parseIris()
    index = 0   
    for train_index, test_index in skf.split(X, y):
       dadosDeTreino, dadosDeTeste = X[train_index], X[test_index]
