@@ -24,9 +24,6 @@ def parseFiles(fileList):
       fileData[file] = dados
 
    preProcessData(fileData)
-   # for file in fileData:
-   #    if (file == "PortugueseCourse"): 
-   #       fileData[file] = parsePortugueseCourse(fileData[file])
 
    print("OI")
 
@@ -50,7 +47,16 @@ def preProcessData(fileData):
                      mapaAttrs[dado] = indiceAttrs
                      indiceAttrs += 1
                   fileData[file][linha][coluna] = mapaAttrs[dado]
-         # del fileData[file][linha][-1]
+
+         label = fileData[file][linha][-1]
+         if not(label in mapaCategorias):
+            mapaCategorias[label] = indiceDaCategoria
+            indiceDaCategoria += 1
+         categorias.append(mapaCategorias[label])
+   
+      for linha in range(len(fileData[file])):
+         del fileData[file][linha][-1]
+         fileData[file][linha] = (fileData[file][linha], categorias[linha])
 
    print("oi")
       
