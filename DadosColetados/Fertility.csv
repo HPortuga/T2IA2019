@@ -1,1 +1,43 @@
-====Fold: 0
+===Decision Tree===
+Medias:
+= Acuracia: 0.79
+= Logistic Loss: 0.012323
+= Fold 0
+Acuracia: 0.55
+Logistic Loss: 0.015576
+
+= Fold 1
+Acuracia: 0.73
+Logistic Loss: 0.015576
+
+= Fold 2
+Acuracia: 0.80
+Logistic Loss: 0.015403
+
+= Fold 3
+Acuracia: 0.90
+Logistic Loss: 0.015403
+
+= Fold 4
+Acuracia: 0.90
+Logistic Loss: 0.015403
+
+= Fold 5
+Acuracia: 1.00
+Logistic Loss: 0.015403
+
+= Fold 6
+Acuracia: 0.70
+Logistic Loss: 0.000000
+
+= Fold 7
+Acuracia: 0.90
+Logistic Loss: 0.000000
+
+= Fold 8
+Acuracia: 0.89
+Logistic Loss: 0.015234
+
+= Fold 9
+Acuracia: 0.56
+Logistic Loss: 0.015234

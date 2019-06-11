@@ -9,14 +9,20 @@ def criarArquivosDeDados(fileNames):
       with open(fileNames.get(file), "w") as file:
          file.write("====Fold: 0\n")
 
-def escreverDados(algoritmo, fileName, index, acuracia, logisticLoss, predicao):
-   with open(fileName, "a") as file:
-      if (index != 0):
-         file.write("====Fold: " + str(index) + "\n")
-      file.write("Acuracia: " + "%.2f" % acuracia + "\n")
-      file.write("Logistic Loss: " + "%.2f" % logisticLoss + "\n")
-      file.write("Conjunto Predito: \n")
-      file.write(np.array2string(predicao, precision=2, separator=",", suppress_small=True)+"\n")
+def escreverDados(outputData, outputFiles):
+   for file in outputFiles:
+      with open(outputFiles[file], "w") as arquivo:
+         for algoritmo in outputData[file]:
+            arquivo.write("===" + algoritmo + "===\n")
+            arquivo.write("Medias:\n")
+            arquivo.write("= Acuracia: " + outputData[file][algoritmo]["Media Acuracia"])
+            arquivo.write("\n= Logistic Loss: " + outputData[file][algoritmo]["Media Logistic Loss"])
+            
+            numFolds = len(outputData[file][algoritmo]) - 4
+            for indice in range(numFolds):
+               arquivo.write("\n= Fold " + str(indice) + "\n")
+               arquivo.write("Acuracia: " + "%.2f" % (outputData[file][algoritmo][indice]["Acuracia"]) + "\n")
+               arquivo.write("Logistic Loss: " + "%.6f" % (outputData[file][algoritmo][indice]["Logistic Loss"]) + "\n")
 
 def abrirDataSets(diretorio):
    fileList = glob.glob(diretorio + "*")
@@ -25,6 +31,15 @@ def abrirDataSets(diretorio):
       fileName = file[len(diretorio):-4]
       inputFiles[fileName] = file
    return inputFiles
+
+def calcularMedias(outputData):
+   for file in outputData:
+      for algoritmo in outputData[file]:
+         for indice in range(index):
+            outputData[file][algoritmo]["Soma Acuracia"] += outputData[file][algoritmo][indice]["Acuracia"]
+            outputData[file][algoritmo]["Soma Logistic Loss"] += outputData[file][algoritmo][indice]["Logistic Loss"]
+         outputData[file][algoritmo]["Media Acuracia"] = "%.2f" % (outputData[file][algoritmo]["Soma Acuracia"] / index)
+         outputData[file][algoritmo]["Media Logistic Loss"] = "%.6f" % (outputData[file][algoritmo]["Soma Logistic Loss"] / index)
 
 if __name__ == "__main__":
    inputDir = "./DataSets/Raw/"
@@ -69,10 +84,6 @@ if __name__ == "__main__":
 
          index += 1
 
-   for file in outputData:
-      for algoritmo in outputData[file]:
-         for indice in range(index):
-            outputData[file][algoritmo]["Soma Acuracia"] += outputData[file][algoritmo][indice]["Acuracia"]
-            outputData[file][algoritmo]["Soma Logistic Loss"] += outputData[file][algoritmo][indice]["Logistic Loss"]
-         outputData[file][algoritmo]["Media Acuracia"] = "%.2f" % (outputData[file][algoritmo]["Soma Acuracia"] / index)
-         outputData[file][algoritmo]["Media Logistic Loss"] = "%.2f" % (outputData[file][algoritmo]["Soma Logistic Loss"] / index)
+   calcularMedias(outputData)
+   escreverDados(outputData, outputFiles)
+   
