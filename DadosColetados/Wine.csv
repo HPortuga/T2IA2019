@@ -1,43 +1,49 @@
 ===Decision Tree===
+Desvios padrao:
+= Acuracia: 0.08
+= Logistic Loss: 2.77
+
 Medias:
 = Acuracia: 0.89
-= Logistic Loss: 0.000000
+= Logistic Loss: 3.636849
+
+Folds:
 = Fold 0
 Acuracia: 0.89
-Logistic Loss: 0.000000
+Logistic Loss: 3.64
 
 = Fold 1
 Acuracia: 0.83
-Logistic Loss: 0.000000
+Logistic Loss: 5.76
 
 = Fold 2
 Acuracia: 0.72
-Logistic Loss: 0.000000
+Logistic Loss: 9.59
 
 = Fold 3
 Acuracia: 0.89
-Logistic Loss: 0.000000
+Logistic Loss: 3.84
 
 = Fold 4
 Acuracia: 0.83
-Logistic Loss: 0.000000
+Logistic Loss: 5.76
 
 = Fold 5
-Acuracia: 0.94
-Logistic Loss: 0.000000
+Acuracia: 0.89
+Logistic Loss: 3.84
 
 = Fold 6
 Acuracia: 1.00
-Logistic Loss: 0.000000
+Logistic Loss: 0.00
 
 = Fold 7
-Acuracia: 0.89
-Logistic Loss: 0.000000
+Acuracia: 0.94
+Logistic Loss: 1.92
 
 = Fold 8
 Acuracia: 0.94
-Logistic Loss: 0.000000
+Logistic Loss: 2.03
 
 = Fold 9
-Acuracia: 0.94
-Logistic Loss: 0.000000
+Acuracia: 1.00
+Logistic Loss: 0.00

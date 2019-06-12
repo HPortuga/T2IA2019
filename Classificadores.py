@@ -3,6 +3,7 @@ from sklearn.model_selection import StratifiedKFold
 import DataParser
 import numpy as np
 import glob
+import statistics
 
 def criarArquivosDeDados(fileNames):
    for file in fileNames:
@@ -14,15 +15,20 @@ def escreverDados(outputData, outputFiles):
       with open(outputFiles[file], "w") as arquivo:
          for algoritmo in outputData[file]:
             arquivo.write("===" + algoritmo + "===\n")
-            arquivo.write("Medias:\n")
+            arquivo.write("Desvios padrao:\n")
+            arquivo.write("= Acuracia: " + "%.2f" % (outputData[file][algoritmo]["Desvio Acuracia"]))
+            arquivo.write("\n= Logistic Loss: " + "%.2f" % (outputData[file][algoritmo]["Desvio Logistic Loss"]))
+
+            arquivo.write("\n\nMedias:\n")
             arquivo.write("= Acuracia: " + outputData[file][algoritmo]["Media Acuracia"])
             arquivo.write("\n= Logistic Loss: " + outputData[file][algoritmo]["Media Logistic Loss"])
-            
-            numFolds = len(outputData[file][algoritmo]) - 4
+
+            arquivo.write("\n\nFolds:")
+            numFolds = len(outputData[file][algoritmo]) - 6
             for indice in range(numFolds):
                arquivo.write("\n= Fold " + str(indice) + "\n")
                arquivo.write("Acuracia: " + "%.2f" % (outputData[file][algoritmo][indice]["Acuracia"]) + "\n")
-               arquivo.write("Logistic Loss: " + "%.6f" % (outputData[file][algoritmo][indice]["Logistic Loss"]) + "\n")
+               arquivo.write("Logistic Loss: " + "%.2f" % (outputData[file][algoritmo][indice]["Logistic Loss"]) + "\n")
 
 def abrirDataSets(diretorio):
    fileList = glob.glob(diretorio + "*")
@@ -35,9 +41,18 @@ def abrirDataSets(diretorio):
 def calcularMedias(outputData):
    for file in outputData:
       for algoritmo in outputData[file]:
-         for indice in range(index):
+         dadosAcuracia = []
+         dadosLogLoss = []
+
+         numFolds = len(outputData[file][algoritmo]) - 4
+         for indice in range(numFolds):
             outputData[file][algoritmo]["Soma Acuracia"] += outputData[file][algoritmo][indice]["Acuracia"]
             outputData[file][algoritmo]["Soma Logistic Loss"] += outputData[file][algoritmo][indice]["Logistic Loss"]
+            dadosAcuracia.append(outputData[file][algoritmo][indice]["Acuracia"])
+            dadosLogLoss.append(outputData[file][algoritmo][indice]["Logistic Loss"])
+
+         outputData[file][algoritmo]["Desvio Acuracia"] = statistics.pstdev(dadosAcuracia)
+         outputData[file][algoritmo]["Desvio Logistic Loss"] = statistics.pstdev(dadosLogLoss)
          outputData[file][algoritmo]["Media Acuracia"] = "%.2f" % (outputData[file][algoritmo]["Soma Acuracia"] / index)
          outputData[file][algoritmo]["Media Logistic Loss"] = "%.6f" % (outputData[file][algoritmo]["Soma Logistic Loss"] / index)
 
@@ -51,18 +66,11 @@ if __name__ == "__main__":
    for file in inputFiles:
       outputFiles[file] = outputDir + file + ".csv"
 
-   # Cria um arquivo novo para cada dataset toda vez que rodar o programa 
-   # criarArquivosDeDados(outputFiles)
-
    outputData = dict()
 
-   skf = StratifiedKFold(n_splits=10)
    for file in inputFiles:
-      index = 0
-
       outputData[file] = {
          "Decision Tree" : {
-            # "index": dict(),
             "Soma Acuracia": 0,
             "Soma Logistic Loss": 0,
             "Media Acuracia": 0,
@@ -70,11 +78,20 @@ if __name__ == "__main__":
          }
       }
 
+      index = 0      
+      
+      if file == "Zoo": n_splits = 3
+      elif file == "Poker": n_splits = 5
+      elif file == "Flags": n_splits = 4
+      else: n_splits = 10
+      
+      skf = StratifiedKFold(n_splits)
       X, y = inputFiles[file]
+      
       for train_index, test_index in skf.split(X, y):
          dadosDeTreino, dadosDeTeste = X[train_index], X[test_index]
          labelsDeTreino, labelsDeTeste = y[train_index], y[test_index]
-   
+         # cvs - lg loss
          decisionTree = DecisionTree(dadosDeTreino, dadosDeTeste, labelsDeTreino, labelsDeTeste)
          outputData[file]["Decision Tree"][index] = dict()
          outputData[file]["Decision Tree"][index]["Acuracia"] = decisionTree.acuracia

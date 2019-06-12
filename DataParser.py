@@ -50,10 +50,14 @@ def preProcessData(fileData):
                   fileData[file][linha][coluna] = mapaAttrs[dado]
                
          label = fileData[file][linha][-1]
-         if not(label in mapaCategorias):
-            mapaCategorias[label] = indiceDaCategoria
-            indiceDaCategoria += 1
-         categorias.append(mapaCategorias[label])
+         try:
+            label = float(label)
+            categorias.append(label)
+         except:
+            if not(label in mapaCategorias):
+               mapaCategorias[label] = indiceDaCategoria
+               indiceDaCategoria += 1
+            categorias.append(mapaCategorias[label])
    
       fileData[file] = separarDadosDaCategoria(fileData[file]), np.asarray(categorias)
 
