@@ -1,4 +1,5 @@
 from DecisionTree import DecisionTree
+from DecisionTreeData import DecisionTreeData
 from sklearn.model_selection import StratifiedKFold
 import DataParser
 import numpy as np
@@ -59,14 +60,15 @@ def calcularMedias(outputData):
          outputData[file][algoritmo]["Media Acuracia"] = "%.2f" % (outputData[file][algoritmo]["Soma Acuracia"] / index)
          outputData[file][algoritmo]["Media Logistic Loss"] = "%.6f" % (outputData[file][algoritmo]["Soma Logistic Loss"] / index)
 
-def encontrarMelhoresParamsPara(classificadores, dados):
+def encontrarMelhoresParamsPara(classificadores, dados, n_splits):
    for nome in classificadores:
+      print("Procurando melhores parametros para %s" % nome)
       algoritmo = classificadores[nome][0]
       possiveisParams = classificadores[nome][1]
       valores = dados[0]
       labels = dados[1]
 
-      clf = GridSearchCV(algoritmo, possiveisParams, cv=10)
+      clf = GridSearchCV(algoritmo, possiveisParams, cv=n_splits)
       clf.fit(valores, labels)
 
       scores = list()
@@ -95,64 +97,55 @@ if __name__ == "__main__":
    outputData = dict()
    for file in inputFiles:
       # TODO: transformar para objeto
-      outputData[file] = {
-         "Decision Tree" : {
-            "Soma Acuracia": 0,
-            "Soma Logistic Loss": 0,
-            "Media Acuracia": 0,
-            "Media Logistic Loss": 0
-         }
-      }
+      outputData[file] = dict()
 
-      X, y = inputFiles[file]
-      for train_index, test_index in skf.split(X, y):
-         dadosDeTreino, dadosDeTeste = X[train_index], X[test_index]
-         labelsDeTreino, labelsDeTeste = y[train_index], y[test_index]
-
-         melhoresParams = list()
-
-         possiveisParamsDecisionTree = {
-            "criterion": ["gini", "entropy"],
-            "splitter": ["best", "random"],
-            "min_weight_fraction_leaf": np.arange(0, 0.5),
-            "presort": [True, False],
-            "max_depth": np.arange(5, 10),
-            "min_samples_split": np.arange(2, 5),
-            "min_samples_leaf": np.arange(1, 5)
-         }
-
-         # 
-         # Params para os outros algoritmos de classificacao
-         # 
-
-         classificadores = {
-            "Decision Tree": (tree.DecisionTreeClassifier(), possiveisParamsDecisionTree, melhoresParams)
-         }
-
-         dados = (dadosDeTreino, labelsDeTreino)
-         encontrarMelhoresParamsPara(classificadores, dados)
-      
-      
       if file == "Zoo": n_splits = 3
       elif file == "Poker": n_splits = 5
       elif file == "Flags": n_splits = 4
       else: n_splits = 10
-      
-      index = 0      
+
+
       skf = StratifiedKFold(n_splits)
+      X, y = inputFiles[file]
+      # for train_index, test_index in skf.split(X, y):
+      dadosDeTreino, labelsDeTreino = X, y
+
+      melhoresParams = list()
+
+      possiveisParamsDecisionTree = {
+         "criterion": ["gini", "entropy"],
+         "splitter": ["best", "random"],
+         "min_weight_fraction_leaf": np.arange(0, 0.5),
+         "presort": [True, False],
+         "max_depth": np.arange(5, 10),
+         "min_samples_split": np.arange(2, 5),
+         "min_samples_leaf": np.arange(1, 5)
+      }
+
+      # 
+      # Params para os outros algoritmos de classificacao
+      # 
+
+      classificadores = {
+         "Decision Tree": (tree.DecisionTreeClassifier(), possiveisParamsDecisionTree, melhoresParams)
+      }
+
+      dados = (dadosDeTreino, labelsDeTreino)
+      encontrarMelhoresParamsPara(classificadores, dados, n_splits)
+      
+      outputData[file]["Decision Tree"] = DecisionTreeData()
+      
+      print("Treinando com arquivo %s" % file)
       for train_index, test_index in skf.split(X, y):
          dadosDeTreino, dadosDeTeste = X[train_index], X[test_index]
          labelsDeTreino, labelsDeTeste = y[train_index], y[test_index]
 
          decisionTree = DecisionTree(dadosDeTreino, dadosDeTeste, labelsDeTreino, labelsDeTeste)
 
-         outputData[file]["Decision Tree"][index] = dict()
-         outputData[file]["Decision Tree"][index]["Acuracia"] = decisionTree.acuracia
-         outputData[file]["Decision Tree"][index]["Logistic Loss"] = decisionTree.logisticLoss
+         outputData[file]["Decision Tree"].dadosDosFolds.append((decisionTree.acuracia, decisionTree.logisticLoss))
 
-         # Demais algoritmos de classificacao
 
-         index += 1
+      # new DTData para cada file
 
    calcularMedias(outputData)
    escreverDados(outputData, outputFiles)
