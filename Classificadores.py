@@ -7,7 +7,6 @@ import statistics
 from sklearn.model_selection import GridSearchCV
 from sklearn import tree
 from sklearn.metrics import classification_report
-from Score import Score
 
 def criarArquivosDeDados(fileNames):
    for file in fileNames:
@@ -60,6 +59,29 @@ def calcularMedias(outputData):
          outputData[file][algoritmo]["Media Acuracia"] = "%.2f" % (outputData[file][algoritmo]["Soma Acuracia"] / index)
          outputData[file][algoritmo]["Media Logistic Loss"] = "%.6f" % (outputData[file][algoritmo]["Soma Logistic Loss"] / index)
 
+def encontrarMelhoresParamsPara(classificadores, dados):
+   for nome in classificadores:
+      algoritmo = classificadores[nome][0]
+      possiveisParams = classificadores[nome][1]
+      valores = dados[0]
+      labels = dados[1]
+
+      clf = GridSearchCV(algoritmo, possiveisParams, cv=10)
+      clf.fit(valores, labels)
+
+      scores = list()
+      
+      means = clf.cv_results_["mean_test_score"]
+      stds = clf.cv_results_["std_test_score"]
+      params = clf.cv_results_["params"]
+      for mean, std, param in zip(means, stds, params):
+         scores.append( {'mean':mean, 'std':std, 'params':param} )
+      
+      newlist = list()
+      newlist = sorted(scores, key=lambda k: k['mean'], reverse=True)
+
+      classificadores[nome][2].append(newlist[:5])
+
 if __name__ == "__main__":
    inputDir = "./DataSets/Raw/"
    inputFiles = abrirDataSets(inputDir)
@@ -72,6 +94,7 @@ if __name__ == "__main__":
 
    outputData = dict()
    for file in inputFiles:
+      # TODO: transformar para objeto
       outputData[file] = {
          "Decision Tree" : {
             "Soma Acuracia": 0,
@@ -81,21 +104,14 @@ if __name__ == "__main__":
          }
       }
 
-      index = 0      
-      
-      if file == "Zoo": n_splits = 3
-      elif file == "Poker": n_splits = 5
-      elif file == "Flags": n_splits = 4
-      else: n_splits = 10
-      
-      skf = StratifiedKFold(n_splits)
       X, y = inputFiles[file]
-
       for train_index, test_index in skf.split(X, y):
          dadosDeTreino, dadosDeTeste = X[train_index], X[test_index]
          labelsDeTreino, labelsDeTeste = y[train_index], y[test_index]
 
-         params = {
+         melhoresParams = list()
+
+         possiveisParamsDecisionTree = {
             "criterion": ["gini", "entropy"],
             "splitter": ["best", "random"],
             "min_weight_fraction_leaf": np.arange(0, 0.5),
@@ -105,42 +121,25 @@ if __name__ == "__main__":
             "min_samples_leaf": np.arange(1, 5)
          }
 
-         clf = GridSearchCV(tree.DecisionTreeClassifier(), params, cv=n_splits)
-         clf.fit(dadosDeTreino, labelsDeTreino)
+         # 
+         # Params para os outros algoritmos de classificacao
+         # 
 
-         print("Best params:")
-         print("")
-         print(clf.best_params_)
-         print("Grid scores:")
-         print("")
-         means = clf.cv_results_["mean_test_score"]
-         print("")
-         print(type(means))
-         print("")
-         stds = clf.cv_results_["std_test_score"]
-         scores = list()
-         
-         for mean, std, params in zip(means, stds, clf.cv_results_["params"]):
-            # scores.append(Score(params=params, mean=mean, std=std))
-            scores.append( {'mean':mean, 'std':std, 'params':params} )
-         
-            # print("%0.3f; (+/-%0.03f); for %r"
-            #    % (mean, std * 2, params))
-         
-         newlist = list()
-         newlist = sorted(scores, key=lambda k: k['mean'], reverse=True)
+         classificadores = {
+            "Decision Tree": (tree.DecisionTreeClassifier(), possiveisParamsDecisionTree, melhoresParams)
+         }
 
-         print("")
-
-         print("Detalhes")
-         print("")
-         y_true, y_pred = labelsDeTeste, clf.predict(dadosDeTeste)
-         print(classification_report(y_true, y_pred))
-         print("")
-
-         
-
-
+         dados = (dadosDeTreino, labelsDeTreino)
+         encontrarMelhoresParamsPara(classificadores, dados)
+      
+      
+      if file == "Zoo": n_splits = 3
+      elif file == "Poker": n_splits = 5
+      elif file == "Flags": n_splits = 4
+      else: n_splits = 10
+      
+      index = 0      
+      skf = StratifiedKFold(n_splits)
       for train_index, test_index in skf.split(X, y):
          dadosDeTreino, dadosDeTeste = X[train_index], X[test_index]
          labelsDeTreino, labelsDeTeste = y[train_index], y[test_index]
