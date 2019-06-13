@@ -4,6 +4,10 @@ import DataParser
 import numpy as np
 import glob
 import statistics
+from sklearn.model_selection import GridSearchCV
+from sklearn import tree
+from sklearn.metrics import classification_report
+
 
 def criarArquivosDeDados(fileNames):
    for file in fileNames:
@@ -67,7 +71,6 @@ if __name__ == "__main__":
       outputFiles[file] = outputDir + file + ".csv"
 
    outputData = dict()
-
    for file in inputFiles:
       outputData[file] = {
          "Decision Tree" : {
@@ -87,12 +90,54 @@ if __name__ == "__main__":
       
       skf = StratifiedKFold(n_splits)
       X, y = inputFiles[file]
-      
+
       for train_index, test_index in skf.split(X, y):
          dadosDeTreino, dadosDeTeste = X[train_index], X[test_index]
          labelsDeTreino, labelsDeTeste = y[train_index], y[test_index]
-         # cvs - lg loss
+
+         params = {
+            "criterion": ["gini", "entropy"],
+            "splitter": ["best", "random"],
+            "min_weight_fraction_leaf": np.arange(0, 0.5),
+            "presort": [True, False],
+            "max_depth": np.arange(5, 10),
+            "min_samples_split": np.arange(2, 5),
+            "min_samples_leaf": np.arange(1, 5)
+         }
+
+         clf = GridSearchCV(tree.DecisionTreeClassifier(), params, cv=n_splits)
+         clf.fit(dadosDeTreino, labelsDeTreino)
+
+         print("Best params:")
+         print("")
+         print(clf.best_params_)
+         print("Grid scores:")
+         print("")
+         means = clf.cv_results_["mean_test_score"]
+         print("")
+         print(type(means))
+         print("")
+         stds = clf.cv_results_["std_test_score"]
+         for mean, std, params in zip(means, stds, clf.cv_results_["params"]):
+            print("%0.3f; (+/-%0.03f); for %r"
+               % (mean, std * 2, params))
+         print("")
+
+         print("Detalhes")
+         print("")
+         y_true, y_pred = labelsDeTeste, clf.predict(dadosDeTeste)
+         print(classification_report(y_true, y_pred))
+         print("")
+
+         
+
+
+      for train_index, test_index in skf.split(X, y):
+         dadosDeTreino, dadosDeTeste = X[train_index], X[test_index]
+         labelsDeTreino, labelsDeTeste = y[train_index], y[test_index]
+
          decisionTree = DecisionTree(dadosDeTreino, dadosDeTeste, labelsDeTreino, labelsDeTeste)
+
          outputData[file]["Decision Tree"][index] = dict()
          outputData[file]["Decision Tree"][index]["Acuracia"] = decisionTree.acuracia
          outputData[file]["Decision Tree"][index]["Logistic Loss"] = decisionTree.logisticLoss
