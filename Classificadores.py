@@ -7,7 +7,7 @@ import statistics
 from sklearn.model_selection import GridSearchCV
 from sklearn import tree
 from sklearn.metrics import classification_report
-
+from Score import Score
 
 def criarArquivosDeDados(fileNames):
    for file in fileNames:
@@ -118,9 +118,18 @@ if __name__ == "__main__":
          print(type(means))
          print("")
          stds = clf.cv_results_["std_test_score"]
+         scores = list()
+         
          for mean, std, params in zip(means, stds, clf.cv_results_["params"]):
-            print("%0.3f; (+/-%0.03f); for %r"
-               % (mean, std * 2, params))
+            # scores.append(Score(params=params, mean=mean, std=std))
+            scores.append( {'mean':mean, 'std':std, 'params':params} )
+         
+            # print("%0.3f; (+/-%0.03f); for %r"
+            #    % (mean, std * 2, params))
+         
+         newlist = list()
+         newlist = sorted(scores, key=lambda k: k['mean'], reverse=True)
+
          print("")
 
          print("Detalhes")
