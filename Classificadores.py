@@ -8,6 +8,8 @@ import statistics
 from sklearn.model_selection import GridSearchCV
 from sklearn import tree
 from sklearn.metrics import classification_report
+from sklearn.metrics import log_loss
+
 
 def criarArquivosDeDados(fileNames):
    for file in fileNames:
@@ -135,14 +137,40 @@ if __name__ == "__main__":
       
       outputData[file]["Decision Tree"] = DecisionTreeData()
       
-      print("Treinando com arquivo %s" % file)
+      for algoritmo in classificadores:
+         params = classificadores[algoritmo][2][0]
+         for param in params:
+            for train_index, test_index in skf.split(X, y):
+               dadosDeTreino, dadosDeTeste = X[train_index], X[test_index]
+               labelsDeTreino, labelsDeTeste = y[train_index], y[test_index]      
+
+               classificador = classificadores[algoritmo][0].set_params(**param["params"])
+               classificador.fit(dadosDeTeste, labelsDeTeste)
+
+               acuracia = classificador.score(dadosDeTeste, labelsDeTeste)
+               predictProbability = classificador.predict_proba(dadosDeTeste)
+               logisticLoss = log_loss(labelsDeTeste, predictProbability)
+               
+               outputData[file][algoritmo].dadosDosFolds.append((acuracia, logisticLoss))
+
+               
+
+      # KFOLD
       for train_index, test_index in skf.split(X, y):
          dadosDeTreino, dadosDeTeste = X[train_index], X[test_index]
          labelsDeTreino, labelsDeTeste = y[train_index], y[test_index]
 
-         decisionTree = DecisionTree(dadosDeTreino, dadosDeTeste, labelsDeTreino, labelsDeTeste)
+         for algoritmo in classificadores:
+            params = classificadores[algoritmo][2][0]
+            for param in params:
+               decisionTree = tree.DecisionTreeClassifier(**param["params"])
+               decisionTree.fit(dadosDeTreino, labelsDeTreino)
+               acuracia = decisionTree.score(dadosDeTeste, labelsDeTeste)
+               predictProbability = decisionTree.predict_proba(dadosDeTeste)
+               logisticLoss = log_loss(labelsDeTeste, predictProbability)
+               outputData[file]["Decision Tree"].dadosDosFolds.append((decisionTree.acuracia, decisionTree.logisticLoss))
 
-         outputData[file]["Decision Tree"].dadosDosFolds.append((decisionTree.acuracia, decisionTree.logisticLoss))
+
 
 
       # new DTData para cada file
