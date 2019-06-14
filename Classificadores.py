@@ -1,40 +1,18 @@
-from DecisionTree import DecisionTree
-from DecisionTreeData import DecisionTreeData
 from sklearn.model_selection import StratifiedKFold
 import DataParser
 import numpy as np
 import glob
-import statistics
 from sklearn.model_selection import GridSearchCV
 from sklearn import tree
 from sklearn.metrics import classification_report
 from sklearn.metrics import log_loss
-
+from DataObject import DataObject
+import FileUtils
 
 def criarArquivosDeDados(fileNames):
    for file in fileNames:
       with open(fileNames.get(file), "w") as file:
          file.write("====Fold: 0\n")
-
-def escreverDados(outputData, outputFiles):
-   for file in outputFiles:
-      with open(outputFiles[file], "w") as arquivo:
-         for algoritmo in outputData[file]:
-            arquivo.write("===" + algoritmo + "===\n")
-            arquivo.write("Desvios padrao:\n")
-            arquivo.write("= Acuracia: " + "%.2f" % (outputData[file][algoritmo]["Desvio Acuracia"]))
-            arquivo.write("\n= Logistic Loss: " + "%.2f" % (outputData[file][algoritmo]["Desvio Logistic Loss"]))
-
-            arquivo.write("\n\nMedias:\n")
-            arquivo.write("= Acuracia: " + outputData[file][algoritmo]["Media Acuracia"])
-            arquivo.write("\n= Logistic Loss: " + outputData[file][algoritmo]["Media Logistic Loss"])
-
-            arquivo.write("\n\nFolds:")
-            numFolds = len(outputData[file][algoritmo]) - 6
-            for indice in range(numFolds):
-               arquivo.write("\n= Fold " + str(indice) + "\n")
-               arquivo.write("Acuracia: " + "%.2f" % (outputData[file][algoritmo][indice]["Acuracia"]) + "\n")
-               arquivo.write("Logistic Loss: " + "%.2f" % (outputData[file][algoritmo][indice]["Logistic Loss"]) + "\n")
 
 def abrirDataSets(diretorio):
    fileList = glob.glob(diretorio + "*")
@@ -43,24 +21,6 @@ def abrirDataSets(diretorio):
       fileName = file[len(diretorio):-4]
       inputFiles[fileName] = file
    return inputFiles
-
-def calcularMedias(outputData):
-   for file in outputData:
-      for algoritmo in outputData[file]:
-         dadosAcuracia = []
-         dadosLogLoss = []
-
-         numFolds = len(outputData[file][algoritmo]) - 4
-         for indice in range(numFolds):
-            outputData[file][algoritmo]["Soma Acuracia"] += outputData[file][algoritmo][indice]["Acuracia"]
-            outputData[file][algoritmo]["Soma Logistic Loss"] += outputData[file][algoritmo][indice]["Logistic Loss"]
-            dadosAcuracia.append(outputData[file][algoritmo][indice]["Acuracia"])
-            dadosLogLoss.append(outputData[file][algoritmo][indice]["Logistic Loss"])
-
-         outputData[file][algoritmo]["Desvio Acuracia"] = statistics.pstdev(dadosAcuracia)
-         outputData[file][algoritmo]["Desvio Logistic Loss"] = statistics.pstdev(dadosLogLoss)
-         outputData[file][algoritmo]["Media Acuracia"] = "%.2f" % (outputData[file][algoritmo]["Soma Acuracia"] / index)
-         outputData[file][algoritmo]["Media Logistic Loss"] = "%.6f" % (outputData[file][algoritmo]["Soma Logistic Loss"] / index)
 
 def encontrarMelhoresParamsPara(classificadores, dados, n_splits):
    for nome in classificadores:
@@ -74,7 +34,6 @@ def encontrarMelhoresParamsPara(classificadores, dados, n_splits):
       clf.fit(valores, labels)
 
       scores = list()
-      
       means = clf.cv_results_["mean_test_score"]
       stds = clf.cv_results_["std_test_score"]
       params = clf.cv_results_["params"]
@@ -85,6 +44,7 @@ def encontrarMelhoresParamsPara(classificadores, dados, n_splits):
       newlist = sorted(scores, key=lambda k: k['mean'], reverse=True)
 
       classificadores[nome][2].append(newlist[:5])
+      classificadores[nome][3].append(scores)
 
 if __name__ == "__main__":
    inputDir = "./DataSets/Raw/"
@@ -109,8 +69,6 @@ if __name__ == "__main__":
       X, y = inputFiles[file]
       dadosDeTreino, labelsDeTreino = X, y
 
-      melhoresParams = list()
-
       possiveisParamsDecisionTree = {
          "criterion": ["gini", "entropy"],
          "splitter": ["best", "random"],
@@ -125,14 +83,20 @@ if __name__ == "__main__":
       # Params para os outros algoritmos de classificacao
       # 
 
+      melhoresParams = list()
+      paramResults = list()
       classificadores = {
-         "Decision Tree": (tree.DecisionTreeClassifier(), possiveisParamsDecisionTree, melhoresParams)
+         "Decision Tree": (
+            tree.DecisionTreeClassifier(),
+            possiveisParamsDecisionTree,
+            melhoresParams,
+            paramResults)
       }
 
       dados = (dadosDeTreino, labelsDeTreino)
       encontrarMelhoresParamsPara(classificadores, dados, n_splits)
       
-      outputData[file]["Decision Tree"] = DecisionTreeData()
+      outputData[file]["Decision Tree"] = DataObject()
       
       for algoritmo in classificadores:
          params = classificadores[algoritmo][2][0]
@@ -162,11 +126,6 @@ if __name__ == "__main__":
 
          outputData[file][algoritmo].calcularMedias()
          outputData[file][algoritmo].calcularDesvios()
-         print("")
 
-               
+      FileUtils.escreverEmArquivo(outputData[file], outputFiles[file])
 
-
-   calcularMedias(outputData)
-   escreverDados(outputData, outputFiles)
-   
