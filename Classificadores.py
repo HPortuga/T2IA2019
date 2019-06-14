@@ -131,9 +131,9 @@ if __name__ == "__main__":
       }
 
       possiveisParamsNaiveBayes = {
-         "priors": None,
-         "var_smoothing": np.arange(2.718**(-9), 2.718**(2))
-      }# GaussinanNB
+         "alpha": np.arange(0, 6),
+         "fit_prior": [True, False]
+      }# MultinomialNB
 
       possiveisParamsRegressaoLogistica = {
          "penalty": ["l1","l2","elasticnet","none"],
@@ -158,9 +158,7 @@ if __name__ == "__main__":
          "tol": np.arange(2.718**(-4), 2.718**(-2)),
          "n_iter_no_change": np.arange(8, 13)
       }
-      # 
-      # Params para os outros algoritmos de classificacao
-      # 
+      
 
       classificadores = {
          "Decision Tree": (tree.DecisionTreeClassifier(), possiveisParamsDecisionTree, melhoresParams)
