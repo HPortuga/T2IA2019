@@ -116,9 +116,6 @@ if __name__ == "__main__":
          "tol": np.arange(2.718**(-4), 2.718**(-2)),
          "n_iter_no_change": np.arange(8, 13)
       }
-      # 
-      # Params para os outros algoritmos de classificacao
-      # 
 
       melhoresParams = list()
       paramResults = list()
@@ -133,10 +130,12 @@ if __name__ == "__main__":
       dados = (dadosDeTreino, labelsDeTreino)
       encontrarMelhoresParamsPara(classificadores, dados, n_splits)
       
-      outputData[file]["Decision Tree"] = DataObject()
+      for algoritmo in classificadores:
+         outputData[file][algoritmo] = DataObject()
       
       for algoritmo in classificadores:
          params = classificadores[algoritmo][2][0]
+         outputData[file][algoritmo].paramResults = classificadores[algoritmo][3]
 
          index = 0
          for param in params:
