@@ -1,3 +1,5 @@
+import statistics
+
 class DecisionTreeData():
    def __init__(self):
       self.somaAcuracia = 0
@@ -19,10 +21,17 @@ class DecisionTreeData():
       dadosAcuracia = []
       dadosLogLoss = []
 
-      for dado in dadosDosFolds:
-         dadosAcuracia.append(dado[0])
-         dadosLogLoss.append(dado[1])
+      for dado in self.dadosDosFolds:
+         for i in range(len(dado)):
+            dadosAcuracia.append(dado[i][0])
+            dadosLogLoss.append(dado[i][1])
 
-      print("")
+      self.desvioAcuracia = statistics.pstdev(dadosAcuracia)
+      self.desvioLogLoss = statistics.pstdev(dadosLogLoss)
 
    def calcularMedias(self):
+      quantidadeDeParametros = len(self.parametros)
+      quantidadeDeFolds = len(self.dadosDosFolds[0]) * quantidadeDeParametros
+
+      self.mediaAcuracia = self.somaAcuracia / quantidadeDeFolds
+      self.mediaLogLoss = self.somaLogLoss / quantidadeDeFolds
