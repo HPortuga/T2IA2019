@@ -173,6 +173,7 @@ if __name__ == "__main__":
       
       for algoritmo in classificadores:
          params = classificadores[algoritmo][2][0]
+
          index = 0
          for param in params:
             outputData[file][algoritmo].parametros[index] = param["params"]
@@ -196,10 +197,9 @@ if __name__ == "__main__":
             outputData[file][algoritmo].dadosDosFolds.append(dadosDosFolds)
             index += 1
 
-         quantidadeDeFolds = 5 * len(outputData[file][algoritmo].dadosDosFolds[0])
-         outputData[file][algoritmo].mediaAcuracia = outputData[file][algoritmo].somaAcuracia / quantidadeDeFolds
-         outputData[file][algoritmo].mediaLogLoss = outputData[file][algoritmo].somaLogLoss / quantidadeDeFolds
+         outputData[file][algoritmo].calcularMedias()
          outputData[file][algoritmo].calcularDesvios()
+         print("")
 
                
 
