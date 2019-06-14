@@ -1,6 +1,6 @@
 import statistics
 
-class DecisionTreeData():
+class DataObject():
    def __init__(self):
       self.somaAcuracia = 0
       self.desvioAcuracia = 0
@@ -16,6 +16,7 @@ class DecisionTreeData():
          3: "",
          4: "",
       }
+      self.paramResults = list()
 
    def calcularDesvios(self):
       dadosAcuracia = []
