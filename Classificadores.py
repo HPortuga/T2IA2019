@@ -1,7 +1,6 @@
 from sklearn.model_selection import StratifiedKFold
 import DataParser
 import numpy as np
-import glob
 from sklearn.model_selection import GridSearchCV
 from sklearn import tree
 from sklearn import neighbors
@@ -12,19 +11,6 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import log_loss
 from DataObject import DataObject
 import FileUtils
-
-def criarArquivosDeDados(fileNames):
-   for file in fileNames:
-      with open(fileNames.get(file), "w") as file:
-         file.write("====Fold: 0\n")
-
-def abrirDataSets(diretorio):
-   fileList = glob.glob(diretorio + "*")
-   inputFiles = dict()
-   for file in fileList:
-      fileName = file[len(diretorio):-4]
-      inputFiles[fileName] = file
-   return inputFiles
 
 def encontrarMelhoresParamsPara(classificadores, dados, n_splits):
    for nome in classificadores:
@@ -52,7 +38,7 @@ def encontrarMelhoresParamsPara(classificadores, dados, n_splits):
 
 if __name__ == "__main__":
    inputDir = "./DataSets/Raw/"
-   inputFiles = abrirDataSets(inputDir)
+   inputFiles = FileUtils.abrirDataSets(inputDir)
    inputFiles = DataParser.parseFiles(inputFiles)
 
    outputDir = "./DadosColetados/"

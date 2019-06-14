@@ -9,6 +9,7 @@ class DataObject():
       self.mediaLogLoss = 0
       self.desvioLogLoss = 0
       self.dadosDosFolds = list()
+      self.paramResults = list()
       self.parametros = {
          0: "",
          1: "",
@@ -16,7 +17,6 @@ class DataObject():
          3: "",
          4: "",
       }
-      self.paramResults = list()
 
    def calcularDesvios(self):
       dadosAcuracia = []
