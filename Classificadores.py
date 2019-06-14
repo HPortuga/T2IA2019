@@ -121,6 +121,43 @@ if __name__ == "__main__":
          "min_samples_leaf": np.arange(1, 5)
       }
 
+      possiveisParamsKNN ={
+         "n_neighbors": np.arange(5, 10),
+         "weights": ["uniform", "distance"],
+         "algorithm": ["auto", "ball_tree", "kd_tree", "brute"],
+         "leaf_size": np.arange(29, 34),
+         "p": np.arange(1, 6),
+         "metric" : ["minkowski"]
+      }
+
+      possiveisParamsNaiveBayes = {
+         "priors": None,
+         "var_smoothing": np.arange(2.718**(-9), 2.718**(2))
+      }# GaussinanNB
+
+      possiveisParamsRegressaoLogistica = {
+         "penalty": ["l1","l2","elasticnet","none"],
+         "dual": [True, False],
+         "tol": np.arange(2.718**(-5), 2.718**(-3)),
+         "fit_intercept": [True, False],
+         "intercept_scaling": np.arange(1, 5),
+         "solver": ["newton-cg", "lbfgs", "liblinear", "sag", "saga"],
+         "max_iter": np.arange(90, 110),
+         "multi_class": ["ovr", "multinomial", "auto"]
+      }
+
+      possiveisParamsMLP = {
+         "activation": ["identity", "logistic", "tanh", "relu"],
+         "solver": ["lbfgs", "sgd", "adam"],
+         "alpha": np.arange(0.0001, 0.005),
+         "learning_rate": ["constant", "invscaling", "adaptive"],
+         "learning_rate_init": np.arange(0.0001, 0.0005),
+         "power_t": np.arange(0.5, 1),
+         "max_iter": np.arange(200,205),
+         "shuffle": [True, False],
+         "tol": np.arange(2.718**(-4), 2.718**(-2)),
+         "n_iter_no_change": np.arange(8, 13)
+      }
       # 
       # Params para os outros algoritmos de classificacao
       # 
