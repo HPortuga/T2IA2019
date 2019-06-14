@@ -3,6 +3,11 @@ import DataParser
 import numpy as np
 from sklearn.model_selection import GridSearchCV
 from sklearn import tree
+from sklearn import neighbors
+from sklearn import naive_bayes
+from sklearn import linear_model
+from sklearn import neural_network
+from sklearn.metrics import classification_report
 from sklearn.metrics import log_loss
 from DataObject import DataObject
 import FileUtils
@@ -108,6 +113,30 @@ if __name__ == "__main__":
          "Decision Tree": (
             tree.DecisionTreeClassifier(),
             possiveisParamsDecisionTree,
+            melhoresParams,
+            paramResults),
+         
+         "KNN":(
+            neighbors.KNeighborsClassifier(),
+            possiveisParamsKNN,
+            melhoresParams,
+            paramResults),
+         
+         "Naive Bayes": (
+            naive_bayes.MultinomialNB(),
+            possiveisParamsNaiveBayes,
+            melhoresParams,
+            paramResults),
+         
+         "Regressao Logistica": (
+            linear_model.LogisticRegression(),
+            possiveisParamsRegressaoLogistica,
+            melhoresParams,
+            paramResults),
+         
+         "MLP":(
+            neural_network.MLPClassifier(),
+            possiveisParamsMLP,
             melhoresParams,
             paramResults)
       }
