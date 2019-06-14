@@ -4,6 +4,10 @@ import numpy as np
 import glob
 from sklearn.model_selection import GridSearchCV
 from sklearn import tree
+from sklearn import neighbors
+from sklearn import naive_bayes
+from sklearn import linear_model
+from sklearn import neural_network
 from sklearn.metrics import classification_report
 from sklearn.metrics import log_loss
 from DataObject import DataObject
@@ -116,10 +120,6 @@ if __name__ == "__main__":
          "tol": np.arange(2.718**(-4), 2.718**(-2)),
          "n_iter_no_change": np.arange(8, 13)
       }
-<<<<<<< HEAD
-=======
-      
->>>>>>> 38e13c19cfcf30ef46fac4563588a4c38645d7ea
 
       melhoresParams = list()
       paramResults = list()
@@ -127,6 +127,30 @@ if __name__ == "__main__":
          "Decision Tree": (
             tree.DecisionTreeClassifier(),
             possiveisParamsDecisionTree,
+            melhoresParams,
+            paramResults),
+         
+         "KNN":(
+            neighbors.KNeighborsClassifier(),
+            possiveisParamsKNN,
+            melhoresParams,
+            paramResults),
+         
+         "Naive Bayes": (
+            naive_bayes.MultinomialNB(),
+            possiveisParamsNaiveBayes,
+            melhoresParams,
+            paramResults),
+         
+         "Regressao Logistica": (
+            linear_model.LogisticRegression(),
+            possiveisParamsRegressaoLogistica,
+            melhoresParams,
+            paramResults),
+         
+         "MLP":(
+            neural_network.MLPClassifier(),
+            possiveisParamsMLP,
             melhoresParams,
             paramResults)
       }
