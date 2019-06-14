@@ -89,14 +89,14 @@ if __name__ == "__main__":
          "fit_intercept": [True, False],
          "intercept_scaling": np.arange(1, 5),
          "solver": ["lbfgs", "liblinear", "sag", "saga"],
-         "max_iter": [100, 1000],
+         "max_iter": [50, 100],
       }
 
       possiveisParamsMLP = {
          "activation": ["identity", "logistic"],
          "solver": ["lbfgs", "sgd"],
          "learning_rate": ["constant", "invscaling", "adaptive"],
-         "max_iter": [100, 1000],
+         "max_iter": [50, 100],
          "shuffle": [True, False],
       }
 
@@ -135,6 +135,7 @@ if __name__ == "__main__":
       }
 
       dados = (dadosDeTreino, labelsDeTreino)
+
       encontrarMelhoresParamsPara(classificadores, dados, n_splits)
       
       for algoritmo in classificadores:
