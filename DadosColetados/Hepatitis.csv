@@ -1,49 +1,665 @@
-===Decision Tree===
-Desvios padrao:
-= Acuracia: 0.09
-= Logistic Loss: 3.17
+====Decision Tree====
+**Desempenho geral do algoritmo**
+- Media Acuracia: 0.795
+- Media Logistic Loss: 0.414
+- Desvio Padrao Acuracia: 0.071
+- Desvio Padrao Logistic Loss: 0.097
 
-Medias:
-= Acuracia: 0.56
-= Logistic Loss: 15.197062
 
-Folds:
-= Fold 0
-Acuracia: 0.50
-Logistic Loss: 17.27
+Combinacoes de parametros ordenadas por desempenho:
+- Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+- Numero de Folds: 10
 
-= Fold 1
-Acuracia: 0.62
-Logistic Loss: 12.95
+*Desempenho fold 0
+- Acuracia: 0.875
+- Logistic Loss: 0.262
+*Desempenho fold 1
+- Acuracia: 0.812
+- Logistic Loss: 0.379
+*Desempenho fold 2
+- Acuracia: 0.812
+- Logistic Loss: 0.314
+*Desempenho fold 3
+- Acuracia: 0.688
+- Logistic Loss: 0.487
+*Desempenho fold 4
+- Acuracia: 0.812
+- Logistic Loss: 0.408
+*Desempenho fold 5
+- Acuracia: 0.867
+- Logistic Loss: 0.392
+*Desempenho fold 6
+- Acuracia: 0.667
+- Logistic Loss: 0.594
+*Desempenho fold 7
+- Acuracia: 0.867
+- Logistic Loss: 0.341
+*Desempenho fold 8
+- Acuracia: 0.800
+- Logistic Loss: 0.277
+*Desempenho fold 9
+- Acuracia: 0.667
+- Logistic Loss: 0.606
 
-= Fold 2
-Acuracia: 0.69
-Logistic Loss: 10.79
 
-= Fold 3
-Acuracia: 0.56
-Logistic Loss: 15.11
+- Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+- Numero de Folds: 10
 
-= Fold 4
-Acuracia: 0.62
-Logistic Loss: 12.95
+*Desempenho fold 0
+- Acuracia: 0.875
+- Logistic Loss: 0.320
+*Desempenho fold 1
+- Acuracia: 0.812
+- Logistic Loss: 0.379
+*Desempenho fold 2
+- Acuracia: 0.812
+- Logistic Loss: 0.314
+*Desempenho fold 3
+- Acuracia: 0.812
+- Logistic Loss: 0.422
+*Desempenho fold 4
+- Acuracia: 0.688
+- Logistic Loss: 0.487
+*Desempenho fold 5
+- Acuracia: 0.867
+- Logistic Loss: 0.392
+*Desempenho fold 6
+- Acuracia: 0.800
+- Logistic Loss: 0.376
+*Desempenho fold 7
+- Acuracia: 0.867
+- Logistic Loss: 0.341
+*Desempenho fold 8
+- Acuracia: 0.733
+- Logistic Loss: 0.444
+*Desempenho fold 9
+- Acuracia: 0.733
+- Logistic Loss: 0.532
 
-= Fold 5
-Acuracia: 0.60
-Logistic Loss: 13.82
 
-= Fold 6
-Acuracia: 0.47
-Logistic Loss: 18.42
+- Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+- Numero de Folds: 10
 
-= Fold 7
-Acuracia: 0.40
-Logistic Loss: 20.72
+*Desempenho fold 0
+- Acuracia: 0.875
+- Logistic Loss: 0.320
+*Desempenho fold 1
+- Acuracia: 0.812
+- Logistic Loss: 0.379
+*Desempenho fold 2
+- Acuracia: 0.875
+- Logistic Loss: 0.336
+*Desempenho fold 3
+- Acuracia: 0.688
+- Logistic Loss: 0.487
+*Desempenho fold 4
+- Acuracia: 0.812
+- Logistic Loss: 0.408
+*Desempenho fold 5
+- Acuracia: 0.867
+- Logistic Loss: 0.392
+*Desempenho fold 6
+- Acuracia: 0.667
+- Logistic Loss: 0.594
+*Desempenho fold 7
+- Acuracia: 0.867
+- Logistic Loss: 0.341
+*Desempenho fold 8
+- Acuracia: 0.867
+- Logistic Loss: 0.341
+*Desempenho fold 9
+- Acuracia: 0.733
+- Logistic Loss: 0.532
 
-= Fold 8
-Acuracia: 0.67
-Logistic Loss: 11.51
 
-= Fold 9
-Acuracia: 0.47
-Logistic Loss: 18.42
+- Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+- Numero de Folds: 10
+
+*Desempenho fold 0
+- Acuracia: 0.875
+- Logistic Loss: 0.320
+*Desempenho fold 1
+- Acuracia: 0.812
+- Logistic Loss: 0.379
+*Desempenho fold 2
+- Acuracia: 0.812
+- Logistic Loss: 0.314
+*Desempenho fold 3
+- Acuracia: 0.750
+- Logistic Loss: 0.439
+*Desempenho fold 4
+- Acuracia: 0.812
+- Logistic Loss: 0.408
+*Desempenho fold 5
+- Acuracia: 0.867
+- Logistic Loss: 0.392
+*Desempenho fold 6
+- Acuracia: 0.667
+- Logistic Loss: 0.594
+*Desempenho fold 7
+- Acuracia: 0.867
+- Logistic Loss: 0.341
+*Desempenho fold 8
+- Acuracia: 0.733
+- Logistic Loss: 0.579
+*Desempenho fold 9
+- Acuracia: 0.733
+- Logistic Loss: 0.532
+
+
+- Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+- Numero de Folds: 10
+
+*Desempenho fold 0
+- Acuracia: 0.875
+- Logistic Loss: 0.262
+*Desempenho fold 1
+- Acuracia: 0.812
+- Logistic Loss: 0.379
+*Desempenho fold 2
+- Acuracia: 0.812
+- Logistic Loss: 0.314
+*Desempenho fold 3
+- Acuracia: 0.688
+- Logistic Loss: 0.487
+*Desempenho fold 4
+- Acuracia: 0.688
+- Logistic Loss: 0.595
+*Desempenho fold 5
+- Acuracia: 0.867
+- Logistic Loss: 0.392
+*Desempenho fold 6
+- Acuracia: 0.800
+- Logistic Loss: 0.365
+*Desempenho fold 7
+- Acuracia: 0.867
+- Logistic Loss: 0.341
+*Desempenho fold 8
+- Acuracia: 0.733
+- Logistic Loss: 0.532
+*Desempenho fold 9
+- Acuracia: 0.733
+- Logistic Loss: 0.558
+
+
+*Desempenho dos parametros testados*
+= Acuracia: 0.606; Desvio padrao: 0.059; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.072; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.083; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.087; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.085; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.594; Desvio padrao: 0.097; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.613; Desvio padrao: 0.087; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.645; Desvio padrao: 0.100; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.613; Desvio padrao: 0.057; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.096; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.619; Desvio padrao: 0.058; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.587; Desvio padrao: 0.086; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.093; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.645; Desvio padrao: 0.103; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.587; Desvio padrao: 0.109; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.069; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.587; Desvio padrao: 0.090; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.083; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.097; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.057; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.115; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.107; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.587; Desvio padrao: 0.109; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.092; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.102; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.055; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.112; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.093; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.096; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.658; Desvio padrao: 0.067; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.102; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.652; Desvio padrao: 0.079; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.581; Desvio padrao: 0.121; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.096; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.114; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.645; Desvio padrao: 0.086; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.083; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.665; Desvio padrao: 0.092; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.080; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.105; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.083; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.677; Desvio padrao: 0.083; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.083; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.658; Desvio padrao: 0.050; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.088; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.068; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.083; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.099; Parametros: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.581; Desvio padrao: 0.089; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.104; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.075; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.083; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.066; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.131; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.587; Desvio padrao: 0.066; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.089; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.581; Desvio padrao: 0.064; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.103; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.075; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.085; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.077; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.671; Desvio padrao: 0.067; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.080; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.594; Desvio padrao: 0.089; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.581; Desvio padrao: 0.103; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.107; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.102; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.561; Desvio padrao: 0.079; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.085; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.581; Desvio padrao: 0.107; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.085; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.581; Desvio padrao: 0.132; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.082; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.071; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.080; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.121; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.082; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.065; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.091; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.587; Desvio padrao: 0.095; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.548; Desvio padrao: 0.084; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.070; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.548; Desvio padrao: 0.101; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.658; Desvio padrao: 0.113; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.085; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.074; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.548; Desvio padrao: 0.073; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.094; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.074; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.087; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.096; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.122; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.548; Desvio padrao: 0.086; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.684; Desvio padrao: 0.106; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.548; Desvio padrao: 0.086; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.645; Desvio padrao: 0.077; Parametros: {'criterion': 'gini', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.070; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.161; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.581; Desvio padrao: 0.055; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.084; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.084; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.144; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.073; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.574; Desvio padrao: 0.080; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.581; Desvio padrao: 0.070; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.106; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.067; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.095; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.099; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.062; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.102; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.542; Desvio padrao: 0.176; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.101; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.574; Desvio padrao: 0.085; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.111; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.645; Desvio padrao: 0.091; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.089; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.130; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.089; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.087; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.086; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.652; Desvio padrao: 0.101; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.535; Desvio padrao: 0.110; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.066; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.097; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.087; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.095; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.645; Desvio padrao: 0.087; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.104; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.068; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.548; Desvio padrao: 0.093; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.064; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.581; Desvio padrao: 0.087; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.097; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.077; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.652; Desvio padrao: 0.081; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.072; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.652; Desvio padrao: 0.107; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.072; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.645; Desvio padrao: 0.105; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.071; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.665; Desvio padrao: 0.108; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.072; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.677; Desvio padrao: 0.113; Parametros: {'criterion': 'gini', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.535; Desvio padrao: 0.103; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.089; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.548; Desvio padrao: 0.076; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.561; Desvio padrao: 0.090; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.094; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.523; Desvio padrao: 0.071; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.081; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.658; Desvio padrao: 0.066; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.085; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.100; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.587; Desvio padrao: 0.091; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.097; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.102; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.055; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.101; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.587; Desvio padrao: 0.128; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.548; Desvio padrao: 0.102; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.083; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.079; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.100; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.085; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.057; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.074; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.076; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.542; Desvio padrao: 0.100; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.523; Desvio padrao: 0.133; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.083; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.112; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.535; Desvio padrao: 0.107; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.080; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.542; Desvio padrao: 0.091; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.652; Desvio padrao: 0.089; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.529; Desvio padrao: 0.084; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.677; Desvio padrao: 0.085; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.542; Desvio padrao: 0.104; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.652; Desvio padrao: 0.098; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.088; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.075; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.079; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.104; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.587; Desvio padrao: 0.071; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.080; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.055; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.106; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.079; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.126; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.055; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.594; Desvio padrao: 0.088; Parametros: {'criterion': 'gini', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.548; Desvio padrao: 0.077; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.561; Desvio padrao: 0.137; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.095; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.587; Desvio padrao: 0.151; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.542; Desvio padrao: 0.083; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.112; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.529; Desvio padrao: 0.050; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.645; Desvio padrao: 0.103; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.097; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.581; Desvio padrao: 0.108; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.535; Desvio padrao: 0.091; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.574; Desvio padrao: 0.106; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.535; Desvio padrao: 0.094; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.099; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.101; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.581; Desvio padrao: 0.078; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.548; Desvio padrao: 0.095; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.574; Desvio padrao: 0.140; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.104; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.574; Desvio padrao: 0.115; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.100; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.106; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.581; Desvio padrao: 0.097; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.120; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.542; Desvio padrao: 0.079; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.568; Desvio padrao: 0.065; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.542; Desvio padrao: 0.090; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.581; Desvio padrao: 0.128; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.092; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.587; Desvio padrao: 0.084; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.542; Desvio padrao: 0.089; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.581; Desvio padrao: 0.094; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.542; Desvio padrao: 0.086; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.652; Desvio padrao: 0.106; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.548; Desvio padrao: 0.103; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.581; Desvio padrao: 0.110; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.075; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.684; Desvio padrao: 0.082; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.080; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.087; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.587; Desvio padrao: 0.061; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.108; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.090; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.107; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.062; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.091; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.587; Desvio padrao: 0.065; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.671; Desvio padrao: 0.105; Parametros: {'criterion': 'gini', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.101; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.064; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.587; Desvio padrao: 0.112; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.065; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.587; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.113; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.112; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.115; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.065; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.112; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.105; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.097; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.119; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.542; Desvio padrao: 0.098; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.587; Desvio padrao: 0.102; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.085; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.645; Desvio padrao: 0.110; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.594; Desvio padrao: 0.104; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.096; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.112; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.086; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.112; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.101; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.110; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.071; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.107; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.094; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.107; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.121; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.110; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.096; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.099; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.665; Desvio padrao: 0.082; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.103; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.061; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.613; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.658; Desvio padrao: 0.076; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.101; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.084; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.097; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.120; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.101; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.645; Desvio padrao: 0.087; Parametros: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.043; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.671; Desvio padrao: 0.111; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.058; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.587; Desvio padrao: 0.084; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.613; Desvio padrao: 0.068; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.076; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.065; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.587; Desvio padrao: 0.094; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.619; Desvio padrao: 0.063; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.594; Desvio padrao: 0.100; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.619; Desvio padrao: 0.073; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.099; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.043; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.051; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.060; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.102; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.067; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.561; Desvio padrao: 0.139; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.067; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.652; Desvio padrao: 0.053; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.065; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.126; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.060; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.587; Desvio padrao: 0.118; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.089; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.645; Desvio padrao: 0.063; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.613; Desvio padrao: 0.087; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.103; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.092; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.665; Desvio padrao: 0.074; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.074; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.594; Desvio padrao: 0.138; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.084; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.076; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.665; Desvio padrao: 0.072; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.639; Desvio padrao: 0.071; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.665; Desvio padrao: 0.096; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.619; Desvio padrao: 0.065; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.684; Desvio padrao: 0.091; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.626; Desvio padrao: 0.062; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.581; Desvio padrao: 0.107; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.613; Desvio padrao: 0.057; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.108; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.626; Desvio padrao: 0.060; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.652; Desvio padrao: 0.087; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.632; Desvio padrao: 0.062; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.072; Parametros: {'criterion': 'entropy', 'max_depth': 6, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.107; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.114; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.076; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.658; Desvio padrao: 0.099; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.066; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.581; Desvio padrao: 0.084; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.548; Desvio padrao: 0.103; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.581; Desvio padrao: 0.096; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.091; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.096; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.108; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.581; Desvio padrao: 0.096; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.081; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.101; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.101; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.105; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.073; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.100; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.097; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.093; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.587; Desvio padrao: 0.098; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.581; Desvio padrao: 0.086; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.080; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.082; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.626; Desvio padrao: 0.080; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.587; Desvio padrao: 0.096; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.632; Desvio padrao: 0.088; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.130; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.626; Desvio padrao: 0.108; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.090; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.626; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.568; Desvio padrao: 0.118; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.619; Desvio padrao: 0.082; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.060; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.639; Desvio padrao: 0.074; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.690; Desvio padrao: 0.087; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.645; Desvio padrao: 0.070; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.665; Desvio padrao: 0.074; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.645; Desvio padrao: 0.074; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.115; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.632; Desvio padrao: 0.069; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.112; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.639; Desvio padrao: 0.071; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.091; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.645; Desvio padrao: 0.070; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.116; Parametros: {'criterion': 'entropy', 'max_depth': 7, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.090; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.581; Desvio padrao: 0.078; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.548; Desvio padrao: 0.121; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.665; Desvio padrao: 0.079; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.103; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.136; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.107; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.645; Desvio padrao: 0.086; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.105; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.652; Desvio padrao: 0.086; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.581; Desvio padrao: 0.093; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.101; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.121; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.587; Desvio padrao: 0.122; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.097; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.581; Desvio padrao: 0.070; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.103; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.101; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.075; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.091; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.587; Desvio padrao: 0.090; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.110; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.079; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.124; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.073; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.619; Desvio padrao: 0.123; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.081; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.128; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.101; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.121; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.090; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.116; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.652; Desvio padrao: 0.050; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.131; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.574; Desvio padrao: 0.111; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.103; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.652; Desvio padrao: 0.098; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.632; Desvio padrao: 0.117; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.085; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.613; Desvio padrao: 0.099; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.050; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.613; Desvio padrao: 0.101; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.155; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.619; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.120; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.619; Desvio padrao: 0.111; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.098; Parametros: {'criterion': 'entropy', 'max_depth': 8, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.096; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.147; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.118; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.093; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.091; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.606; Desvio padrao: 0.153; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.581; Desvio padrao: 0.090; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.132; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.087; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.162; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.568; Desvio padrao: 0.072; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.632; Desvio padrao: 0.095; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 1, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.133; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.587; Desvio padrao: 0.060; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.555; Desvio padrao: 0.108; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.137; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.092; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.081; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.115; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.587; Desvio padrao: 0.123; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.574; Desvio padrao: 0.128; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.594; Desvio padrao: 0.083; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.561; Desvio padrao: 0.101; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.529; Desvio padrao: 0.132; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 2, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.613; Desvio padrao: 0.123; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.619; Desvio padrao: 0.110; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.121; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.104; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.085; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.581; Desvio padrao: 0.141; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.587; Desvio padrao: 0.114; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.568; Desvio padrao: 0.128; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.626; Desvio padrao: 0.140; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.561; Desvio padrao: 0.117; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.594; Desvio padrao: 0.125; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.626; Desvio padrao: 0.106; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 3, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.600; Desvio padrao: 0.112; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.066; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.619; Desvio padrao: 0.130; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.658; Desvio padrao: 0.114; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.606; Desvio padrao: 0.113; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.658; Desvio padrao: 0.082; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.613; Desvio padrao: 0.096; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.639; Desvio padrao: 0.111; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 3, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}
+= Acuracia: 0.619; Desvio padrao: 0.130; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'best'}
+= Acuracia: 0.600; Desvio padrao: 0.110; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': True, 'splitter': 'random'}
+= Acuracia: 0.626; Desvio padrao: 0.134; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'best'}
+= Acuracia: 0.613; Desvio padrao: 0.071; Parametros: {'criterion': 'entropy', 'max_depth': 9, 'min_samples_leaf': 4, 'min_samples_split': 4, 'min_weight_fraction_leaf': 0.0, 'presort': False, 'splitter': 'random'}

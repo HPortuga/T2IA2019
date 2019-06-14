@@ -1,26 +1,11 @@
 from sklearn.model_selection import StratifiedKFold
 import DataParser
 import numpy as np
-import glob
 from sklearn.model_selection import GridSearchCV
 from sklearn import tree
-from sklearn.metrics import classification_report
 from sklearn.metrics import log_loss
 from DataObject import DataObject
 import FileUtils
-
-def criarArquivosDeDados(fileNames):
-   for file in fileNames:
-      with open(fileNames.get(file), "w") as file:
-         file.write("====Fold: 0\n")
-
-def abrirDataSets(diretorio):
-   fileList = glob.glob(diretorio + "*")
-   inputFiles = dict()
-   for file in fileList:
-      fileName = file[len(diretorio):-4]
-      inputFiles[fileName] = file
-   return inputFiles
 
 def encontrarMelhoresParamsPara(classificadores, dados, n_splits):
    for nome in classificadores:
@@ -48,7 +33,7 @@ def encontrarMelhoresParamsPara(classificadores, dados, n_splits):
 
 if __name__ == "__main__":
    inputDir = "./DataSets/Raw/"
-   inputFiles = abrirDataSets(inputDir)
+   inputFiles = FileUtils.abrirDataSets(inputDir)
    inputFiles = DataParser.parseFiles(inputFiles)
 
    outputDir = "./DadosColetados/"
@@ -116,10 +101,6 @@ if __name__ == "__main__":
          "tol": np.arange(2.718**(-4), 2.718**(-2)),
          "n_iter_no_change": np.arange(8, 13)
       }
-<<<<<<< HEAD
-=======
-      
->>>>>>> 38e13c19cfcf30ef46fac4563588a4c38645d7ea
 
       melhoresParams = list()
       paramResults = list()
