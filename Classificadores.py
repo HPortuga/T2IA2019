@@ -98,7 +98,6 @@ if __name__ == "__main__":
 
    outputData = dict()
    for file in inputFiles:
-      # TODO: transformar para objeto
       outputData[file] = dict()
 
       if file == "Zoo": n_splits = 3
@@ -106,10 +105,8 @@ if __name__ == "__main__":
       elif file == "Flags": n_splits = 4
       else: n_splits = 10
 
-
       skf = StratifiedKFold(n_splits)
       X, y = inputFiles[file]
-      # for train_index, test_index in skf.split(X, y):
       dadosDeTreino, labelsDeTreino = X, y
 
       melhoresParams = list()
@@ -139,7 +136,11 @@ if __name__ == "__main__":
       
       for algoritmo in classificadores:
          params = classificadores[algoritmo][2][0]
+         index = 0
          for param in params:
+            outputData[file][algoritmo].parametros[index] = param["params"]
+            
+            dadosDosFolds = list()
             for train_index, test_index in skf.split(X, y):
                dadosDeTreino, dadosDeTeste = X[train_index], X[test_index]
                labelsDeTreino, labelsDeTeste = y[train_index], y[test_index]      
@@ -151,29 +152,20 @@ if __name__ == "__main__":
                predictProbability = classificador.predict_proba(dadosDeTeste)
                logisticLoss = log_loss(labelsDeTeste, predictProbability)
                
-               outputData[file][algoritmo].dadosDosFolds.append((acuracia, logisticLoss))
+               dadosDosFolds.append((acuracia, logisticLoss))
+               outputData[file][algoritmo].somaAcuracia += acuracia
+               outputData[file][algoritmo].somaLogLoss += logisticLoss
+
+            outputData[file][algoritmo].dadosDosFolds.append(dadosDosFolds)
+            index += 1
+
+         quantidadeDeFolds = 5 * len(outputData[file][algoritmo].dadosDosFolds[0])
+         outputData[file][algoritmo].mediaAcuracia = outputData[file][algoritmo].somaAcuracia / quantidadeDeFolds
+         outputData[file][algoritmo].mediaLogLoss = outputData[file][algoritmo].somaLogLoss / quantidadeDeFolds
+         outputData[file][algoritmo].calcularDesvios()
 
                
 
-      # KFOLD
-      for train_index, test_index in skf.split(X, y):
-         dadosDeTreino, dadosDeTeste = X[train_index], X[test_index]
-         labelsDeTreino, labelsDeTeste = y[train_index], y[test_index]
-
-         for algoritmo in classificadores:
-            params = classificadores[algoritmo][2][0]
-            for param in params:
-               decisionTree = tree.DecisionTreeClassifier(**param["params"])
-               decisionTree.fit(dadosDeTreino, labelsDeTreino)
-               acuracia = decisionTree.score(dadosDeTeste, labelsDeTeste)
-               predictProbability = decisionTree.predict_proba(dadosDeTeste)
-               logisticLoss = log_loss(labelsDeTeste, predictProbability)
-               outputData[file]["Decision Tree"].dadosDosFolds.append((decisionTree.acuracia, decisionTree.logisticLoss))
-
-
-
-
-      # new DTData para cada file
 
    calcularMedias(outputData)
    escreverDados(outputData, outputFiles)
