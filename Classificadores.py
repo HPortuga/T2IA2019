@@ -33,8 +33,11 @@ def encontrarMelhoresParamsPara(classificadores, dados, n_splits):
       newlist = list()
       newlist = sorted(scores, key=lambda k: k['mean'], reverse=True)
 
-      classificadores[nome][2].append(newlist[:5])
-      classificadores[nome][3].append(scores)
+      melhoresParams = newlist[:5]
+      melhoresScore = scores.copy()
+      
+      classificadores[nome][2] = melhoresParams.copy()
+      classificadores[nome][3] = melhoresScore.copy()
 
 if __name__ == "__main__":
    inputDir = "./DataSets/Raw/"
@@ -86,49 +89,49 @@ if __name__ == "__main__":
          "fit_intercept": [True, False],
          "intercept_scaling": np.arange(1, 5),
          "solver": ["lbfgs", "liblinear", "sag", "saga"],
-         "max_iter": [50, 100, 200, 250, 300],
+         "max_iter": [100, 1000],
       }
 
       possiveisParamsMLP = {
-         "activation": ["identity", "logistic", "tanh", "relu"],
-         "solver": ["lbfgs", "sgd", "adam"],
+         "activation": ["identity", "logistic"],
+         "solver": ["lbfgs", "sgd"],
          "learning_rate": ["constant", "invscaling", "adaptive"],
-         "max_iter": [50, 200, 300],
+         "max_iter": [100, 1000],
          "shuffle": [True, False],
       }
 
       melhoresParams = list()
       paramResults = list()
       classificadores = {
-         "Decision Tree": (
+         "Decision Tree": [
             tree.DecisionTreeClassifier(),
             possiveisParamsDecisionTree,
             melhoresParams,
-            paramResults),
+            paramResults],
          
-         "KNN":(
+         "KNN":[
             neighbors.KNeighborsClassifier(),
             possiveisParamsKNN,
             melhoresParams,
-            paramResults),
+            paramResults],
          
-         "Naive Bayes": (
+         "Naive Bayes": [
             naive_bayes.MultinomialNB(),
             possiveisParamsNaiveBayes,
             melhoresParams,
-            paramResults),
+            paramResults],
          
-         "Regressao Logistica": (
+         "Regressao Logistica": [
             linear_model.LogisticRegression(),
             possiveisParamsRegressaoLogistica,
             melhoresParams,
-            paramResults),
+            paramResults],
          
-         "MLP":(
+         "MLP":[
             neural_network.MLPClassifier(),
             possiveisParamsMLP,
             melhoresParams,
-            paramResults)
+            paramResults]
       }
 
       dados = (dadosDeTreino, labelsDeTreino)
@@ -139,7 +142,7 @@ if __name__ == "__main__":
       
       for algoritmo in classificadores:
          print("***classificando %s para %s" % (algoritmo, file))
-         params = classificadores[algoritmo][2][0]
+         params = classificadores[algoritmo][2]
          outputData[file][algoritmo].paramResults = classificadores[algoritmo][3]
 
          index = 0

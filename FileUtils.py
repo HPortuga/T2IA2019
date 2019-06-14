@@ -24,7 +24,7 @@ def escreverEmArquivo(outputData, outputFile):
             arquivo.write("\n\n")
 
          arquivo.write("*Desempenho dos parametros testados*\n")
-         for result in outputData[algoritmo].paramResults[0]:
+         for result in outputData[algoritmo].paramResults:
             arquivo.write("= Acuracia: %0.3f; Desvio padrao: %0.3f; Parametros: %s\n"
                % (result["mean"], result["std"], str(result["params"])))
 
