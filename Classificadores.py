@@ -9,7 +9,7 @@ import FileUtils
 
 def encontrarMelhoresParamsPara(classificadores, dados, n_splits):
    for nome in classificadores:
-      print("Procurando melhores parametros para %s" % nome)
+      print("***Procurando melhores parametros para %s" % nome)
       algoritmo = classificadores[nome][0]
       possiveisParams = classificadores[nome][1]
       valores = dados[0]
@@ -119,6 +119,7 @@ if __name__ == "__main__":
          outputData[file][algoritmo] = DataObject()
       
       for algoritmo in classificadores:
+         print("***classificando %s para %s" % (algoritmo, file))
          params = classificadores[algoritmo][2][0]
          outputData[file][algoritmo].paramResults = classificadores[algoritmo][3]
 
